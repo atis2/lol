@@ -15,7 +15,7 @@ def unban(message):
         chat_id = message.chat.id 
         user_id = message.reply_to_message.from_user.id
         bot.unban_chat_member(chat_id, user_id) 
-        bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} был разбанен.")
+        bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} priexal obratno.")
 
 
 @bot.message_handler(commands=['ban'])
@@ -30,7 +30,8 @@ def ban_user(message):
             bot.reply_to(message, "Невозможно забанить администратора.")
         else:
             bot.ban_chat_member(chat_id, user_id) # пользователь с user_id будет забанен в чате с chat_id
-            bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} был забанен.")
+            bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} был otpravlen k babuzke.")
+            bot.send_sticker(chat_id, "CAACAgIAAxkBAAEsaJVmirlCMze1jZRG-HWWjw_K169lAQACpjQAAji2uEqk-zFPA8ARczUE")
     else:
         bot.reply_to(message, "Эта команда должна быть использована в ответ на сообщение пользователя, которого вы хотите забанить.")
 
