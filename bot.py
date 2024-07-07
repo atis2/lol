@@ -7,6 +7,17 @@ bot = telebot.TeleBot(token)
 def start(message):
     bot.reply_to(message, "Привет! Я бот для управления чатом.")
 
+
+
+@bot.message_handler(commands=['unban'])
+def unban(message):
+    if message.reply_to_message:
+        chat_id = message.chat.id 
+        user_id = message.reply_to_message.from_user.id
+        bot.unban_chat_member(chat_id, user_id) 
+        bot.reply_to(message, f"Пользователь @{message.reply_to_message.from_user.username} был разбанен.")
+
+
 @bot.message_handler(commands=['ban'])
 def ban_user(message):
     if message.reply_to_message: #проверка на то, что эта команда была вызвана в ответ на сообщение 
