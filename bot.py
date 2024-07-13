@@ -51,9 +51,11 @@ def ban_user(message):
 
 @bot.message_handler(content_types=['new_chat_members'])
 def make_some(message):
+    chat_id = message.chat.id
     bot.send_message(message.chat.id, 'I accepted a new user!')
+    bot.send_sticker(chat_id, "CAACAgIAAxkBAAEsjtBmkvHdZXOZgGyhXyXGT0T7wdRjhAACzzYAAuFwuErvUaEly7Nz0TUE")
     bot.approve_chat_join_request(message.chat.id, message.from_user.id)
-    bot.send_sticker(message.chat_id, "CAACAgIAAxkBAAEsjtBmkvHdZXOZgGyhXyXGT0T7wdRjhAACzzYAAuFwuErvUaEly7Nz0TUE")
+    
 
 
 bot.infinity_polling(none_stop=True)
